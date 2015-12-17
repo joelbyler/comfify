@@ -1,6 +1,6 @@
 # Ensure we require the local version and not one we might have installed already
 require File.join([File.dirname(__FILE__),'lib','comfify','version.rb'])
-spec = Gem::Specification.new do |s| 
+spec = Gem::Specification.new do |s|
   s.name = 'comfify'
   s.version = Comfify::VERSION
   s.author = 'Your Name Here'
@@ -18,6 +18,7 @@ spec = Gem::Specification.new do |s|
   s.executables << 'comfify'
   s.add_development_dependency('rake')
   s.add_development_dependency('rdoc')
+  s.add_development_dependency('rspec')
   s.add_development_dependency('aruba')
   s.add_runtime_dependency('gli','2.13.4')
 end
