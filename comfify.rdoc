@@ -1,0 +1,5 @@
+= comfify
+
+Generate this with
+    comfify rdoc
+After you have described your command line interface
