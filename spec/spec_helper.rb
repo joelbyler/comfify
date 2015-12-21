@@ -1,3 +1,7 @@
+require 'pry'
+require 'fakefs/spec_helpers'
+require 'aruba/rspec'
+
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'comfify'
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
@@ -10,4 +14,6 @@ else
   ::Dir.glob(::File.expand_path('../support/**/*.rb', __FILE__)).each { |f| require_relative f }
 end
 
-require 'fakefs/spec_helpers'
+RSpec.configure do |config|
+  config.include FakeFS::SpecHelpers, fakefs: true
+end

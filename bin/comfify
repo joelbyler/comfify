@@ -11,20 +11,12 @@ end
 
 include GLI::App
 
-program_desc 'Describe your application here'
+program_desc 'a tool to help keep dotfiles in sync with other systems'
 
 version Comfify::VERSION
 
 subcommand_option_handling :normal
 arguments :strict
-
-desc 'Describe some switch here'
-switch [:s,:switch]
-
-desc 'Describe some flag here'
-default_value 'the default'
-arg_name 'The name of the argument'
-flag [:f,:flagname]
 
 pre do |global,command,options,args|
   # Pre logic here
@@ -45,6 +37,26 @@ on_error do |exception|
   # Error logic here
   # return false to skip default error handling
   true
+end
+
+desc 'create a new link for a directory to your home directory'
+arg_name 'directory'
+command :link do |c|
+  c.action do |global_options,options,args|
+    if File.file?(args.first)
+      puts "Linking file #{args.first}"
+      File.symlink(args.first, File.expand_path("#{Dir.home}/#{args.first}"), :force => true)
+    elsif File.directory?(args.first)
+      Dir.foreach(args.first) do |item|
+        unless item == "." || item == ".."
+          puts "Linking file #{item}"
+          File.symlink("#{args.first}/#{item}", File.expand_path("#{Dir.home}/#{item}"))
+        end
+      end
+    else
+      puts "Unable to locate the directory to link"
+    end
+  end
 end
 
 exit run(ARGV)

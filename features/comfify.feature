@@ -6,3 +6,15 @@ Feature: My bootstrapped app kinda works
   Scenario: App just runs
     When I get help for "comfify"
     Then the exit status should be 0
+
+  Scenario: Link a directory
+    Given a file named "foo/.foofiles/file1.txt" with:
+      """
+      Lorem ipsum dolor
+      """
+    When I link the "foo" directory with "comfify"
+    Then the exit status should be 0
+    And the output should contain:
+       """
+       Linking file .foofiles
+       """
