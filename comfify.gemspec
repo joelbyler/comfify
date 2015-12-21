@@ -3,11 +3,11 @@ require File.join([File.dirname(__FILE__),'lib','comfify','version.rb'])
 spec = Gem::Specification.new do |s|
   s.name = 'comfify'
   s.version = Comfify::VERSION
-  s.author = 'Your Name Here'
-  s.email = 'your@email.address.com'
-  s.homepage = 'http://your.website.com'
+  s.author = 'Joel Byler'
+  s.email = 'joelbyler@gmail.com'
+  s.homepage = 'https://github.com/joelbyler/comfify'
   s.platform = Gem::Platform::RUBY
-  s.summary = 'A description of your project'
+  s.summary = 'Command Line Utility to assist in setting up dotfiles'
   s.files = `git ls-files`.split("
 ")
   s.require_paths << 'lib'

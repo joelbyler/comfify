@@ -50,7 +50,11 @@ command :link do |c|
       Dir.foreach(args.first) do |item|
         unless item == "." || item == ".."
           puts "Linking file #{item}"
-          File.symlink("#{args.first}/#{item}", File.expand_path("#{Dir.home}/#{item}"))
+          if (File.exist?(File.expand_path("#{Dir.home}/#{item}")))
+            puts "   ** destination already exists, skipping **"
+          else
+            File.symlink("#{args.first}/#{item}", File.expand_path("#{Dir.home}/#{item}"))
+          end
         end
       end
     else
