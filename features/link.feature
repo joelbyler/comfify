@@ -18,8 +18,8 @@ Scenario: Link contents of a directory
 Scenario: Prevents accidental overwrite of existing folder
   When I link the "foo" directory with "comfify"
   When I link the "foo" directory with "comfify"
-  Then the exit status should be 1
-  And the output should contain "error: File exists"
+  Then the exit status should be 0
+  And the output should contain "destination already exists, skipping"
 
 Scenario: Linked directory exists
   When I link the "foo" directory with "comfify"
