@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/joelbyler/comfify.svg)](https://travis-ci.org/joelbyler/comfify)
 
-A gem inspired by GNU stow, but built with ruby (because of some trouble using stow on centOS environments).
+A CLI gem inspired by GNU stow, but built with ruby (because of some trouble using stow on centOS environments).
 
 
 ## Installation
@@ -23,11 +23,9 @@ Or install it yourself as:
 
 ## Linking a directory
 
-```bash
-comfify link some_dir
-```
+this command will create a symlink to 'some_dir' in the current user's home directory
 
-above command will create a symlink to 'some_dir' in the current user's home directory
+    $ comfify link some_dir
 
 ## Development
 
