@@ -2,9 +2,8 @@
 
 [![Build Status](https://travis-ci.org/joelbyler/comfify.svg)](https://travis-ci.org/joelbyler/comfify)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/comfify`. To experiment with that code, run `bin/console` for an interactive prompt.
+A gem inspired by GNU stow, but built with ruby (because of some trouble using stow on centOS environments).
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
@@ -22,9 +21,13 @@ Or install it yourself as:
 
     $ gem install comfify
 
-## Usage
+## Linking a directory
 
-TODO: Write usage instructions here
+```bash
+comfify link some_dir
+```
+
+above command will create a symlink to 'some_dir' in the current user's home directory
 
 ## Development
 
