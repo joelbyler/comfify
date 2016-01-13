@@ -11,3 +11,7 @@ When(/^I link the "([^"]*)" directory with "([^"]*)"$/) do |dir_name, app_name|
   @app_name = app_name
   step %(I run `#{app_name} link #{dir_name}`)
 end
+
+Then(/^a symlink exists for "([^"]*)" in my home directory$/) do |dir_name|
+  expect(File.symlink?(File.expand_path("#{Dir.home}/#{dir_name}"))).to eq(true)\
+end

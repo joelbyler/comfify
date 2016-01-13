@@ -20,3 +20,7 @@ Scenario: Prevents accidental overwrite of existing folder
   When I link the "foo" directory with "comfify"
   Then the exit status should be 1
   And the output should contain "error: File exists"
+
+Scenario: Linked directory exists
+  When I link the "foo" directory with "comfify"
+  Then a symlink exists for ".foofiles" in my home directory

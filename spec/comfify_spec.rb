@@ -13,18 +13,4 @@ describe Comfify, :type => :aruba do
   it 'has a version number' do
     expect(Comfify::VERSION).not_to be nil
   end
-
-  it 'creates a symlink' do
-    expect {
-      FileUtils::mkdir_p('foo/.foo')
-    }.to change {
-      Dir.exists?('foo/.foo')
-    }.from(false).to(true)
-
-  #   expect {
-  #     `bundle exec comfify link foo`
-  #   }.to change {
-  #     Dir.exists?("#{Dir.home}/.foo")
-  #   }.from(false).to(true)
-  end
 end
